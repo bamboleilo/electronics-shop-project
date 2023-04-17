@@ -18,7 +18,7 @@ class Item:
         self.__name = name
         self.price = price
         self.quantity = quantity
-        self.all.append(self)
+        Item.all.append(self)
 
     def calculate_total_price(self) -> float:
         """
@@ -28,11 +28,11 @@ class Item:
         """
         return self.price * self.quantity
 
-    def apply_discount(self) -> float:
+    def apply_discount(self) -> None:
         """
         Применяет установленную скидку для конкретного товара.
         """
-        return self.calculate_total_price() * self.pay_rate
+        self.price *= Item.pay_rate
 
     @classmethod
     def instantiate_from_csv(self):
