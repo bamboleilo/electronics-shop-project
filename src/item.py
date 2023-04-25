@@ -1,4 +1,4 @@
-from csv import DictReader
+import csv
 
 class Item:
     """
@@ -35,12 +35,17 @@ class Item:
         self.price *= Item.pay_rate
 
     @classmethod
-    def instantiate_from_csv(self):
+    def instantiate_from_csv(cls, file_name):
         """
         Класс-метод, инициализирующий экземпляры класса Item
         данными из файла src/items.csv
         """
-        pass
+
+        with open(file_name) as file:
+            res = csv.DictReader(file)
+            for i in res:
+                if list(i.keys()) == ['name', 'price', 'quantity']:
+                    cls(i['name'], i['price'], i['quantity'])
 
     @staticmethod
     def string_to_number(value):
