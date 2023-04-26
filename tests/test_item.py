@@ -20,3 +20,13 @@ def test_apply_discount():
     assert item1.apply_discount() == 45000
     assert item2.apply_discount() == 90000
 
+@pytest.fixture
+def test_data():
+    return Item("Смартфон", 10000, 20)
+
+def test_str(test_data):
+    assert str(test_data) == "Смартфон"
+
+
+def test_repr(test_data):
+    assert repr(test_data) == "Item('Смартфон', 10000, 20)"
