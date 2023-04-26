@@ -3,19 +3,19 @@ from src.item import Item
 
 class Phone(Item):
     """
-    Класс для представления телефона в магазине.
+    РљР»Р°СЃСЃ РґР»СЏ РїСЂРµРґСЃС‚Р°РІР»РµРЅРёСЏ С‚РµР»РµС„РѕРЅР° РІ РјР°РіР°Р·РёРЅРµ.
     """
     def __init__(self, name: str, price: float, quantity: int, sim_card: int) -> None:
         """
-        Создание экземпляра класса item.
-        :param name: Название товара.
-        :param price: Цена за единицу товара.
-        :param quantity: Количество товара в магазине.
+        РЎРѕР·РґР°РЅРёРµ СЌРєР·РµРјРїР»СЏСЂР° РєР»Р°СЃСЃР° item.
+        :param name: РќР°Р·РІР°РЅРёРµ С‚РѕРІР°СЂР°.
+        :param price: Р¦РµРЅР° Р·Р° РµРґРёРЅРёС†Сѓ С‚РѕРІР°СЂР°.
+        :param quantity: РљРѕР»РёС‡РµСЃС‚РІРѕ С‚РѕРІР°СЂР° РІ РјР°РіР°Р·РёРЅРµ.
         """
         super().__init__(name, price, quantity)
 
         if not isinstance(sim_card, int) or sim_card < 1:
-            raise ValueError("Количество физических SIM-карт должно быть целым числом больше нуля.")
+            raise ValueError("РљРѕР»РёС‡РµСЃС‚РІРѕ С„РёР·РёС‡РµСЃРєРёС… SIM-РєР°СЂС‚ РґРѕР»Р¶РЅРѕ Р±С‹С‚СЊ С†РµР»С‹Рј С‡РёСЃР»РѕРј Р±РѕР»СЊС€Рµ РЅСѓР»СЏ.")
 
         self.__number_of_sim = sim_card
 
@@ -31,5 +31,5 @@ class Phone(Item):
         if number_of_sim >= 1:
             self.__number_of_sim = number_of_sim
         else:
-            raise ValueError("Количество физических SIM-карт должно быть целым числом больше нуля.")
+            raise ValueError("РљРѕР»РёС‡РµСЃС‚РІРѕ С„РёР·РёС‡РµСЃРєРёС… SIM-РєР°СЂС‚ РґРѕР»Р¶РЅРѕ Р±С‹С‚СЊ С†РµР»С‹Рј С‡РёСЃР»РѕРј Р±РѕР»СЊС€Рµ РЅСѓР»СЏ.")
         return
