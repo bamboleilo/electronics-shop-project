@@ -20,6 +20,13 @@ class Item:
         self.quantity = quantity
         Item.all.append(self)
 
+    def __repr__(self):
+        res = str(self.__class__).split('.')[-1][:-2]
+        return f"{res}('{self.name}', {self.price}, {self.quantity})"
+
+    def __str__(self):
+        return f"{self.name}"
+
     def calculate_total_price(self) -> float:
         """
         Рассчитывает общую стоимость конкретного товара в магазине.
@@ -64,3 +71,4 @@ class Item:
             self.__name = name
         else:
             print("Exception: Длина наименования товара превышает 10 символов.")
+
